@@ -1,0 +1,17 @@
+<sly>
+  <div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.MetaDataReader"
+       data-sly-use.templates="core/wcm/components/commons/v1/templates.html" class="cmp-assets">
+       <h1 class="cmp-assets__heading">Assets Detail</h1>
+       <div data-sly-list.item="${model.assetData}"  class="cmp-assets__list" >
+        <h2>---------------------------------------------------------------AssetData : ${itemList.count}-------------------------------------------------------------------</h2>
+          <div class="cmp-assets__list--detail">
+            <img src="${item.imagePath}" alt="" class="cmp-assets__list--detail--image">
+            <div class="cmp-assets__list--detail--assetname">Asset Name: ${item.assetName}</div>
+            <div class="cmp-assets__list--detail--title">Asset Title: ${item.title}</div>
+            <div class="cmp-assets__list--detail--mimetype">Asset Mimetype: ${item.mimeType}</div>
+          </div>
+    </div>
+  </div>
+</sly>
+<sly data-sly-call="${templates.placeholder @ isEmpty=model.isEmpty}"></sly>
+
