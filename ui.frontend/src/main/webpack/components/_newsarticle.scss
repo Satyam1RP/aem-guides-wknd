@@ -1,0 +1,15 @@
+.cmp-newsarticle{
+    background-color: $color-background-asset;
+    text-align: center;
+    &__details{
+        font-weight: bold;
+        font-size: 17px;
+
+        &--description{
+            p {
+                display: inline;
+            }
+        }
+    }
+
+}
