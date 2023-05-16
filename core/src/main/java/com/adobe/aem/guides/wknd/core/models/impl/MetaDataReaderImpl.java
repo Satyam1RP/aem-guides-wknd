@@ -33,6 +33,9 @@ public class MetaDataReaderImpl implements MetaDataReader {
     String METADATA = "/jcr:content/metadata";
     String MIME_TYPE = "dam:MIMEtype";
     String TITLE = "dc:title";
+    String PNG_DESCRIPTION = "dc:imagediscription";
+    String PNG_TITLE = "dc:imagetitle"; 
+
 
     @SlingObject
     ResourceResolver resourceResolver;
@@ -47,7 +50,6 @@ public class MetaDataReaderImpl implements MetaDataReader {
         Resource res = resourceResolver.getResource(assetPath);
         if(res!=null && res.hasChildren()){
             Iterator<Resource> children = res.listChildren();
-            
             while(children.hasNext()){
                 Map<String, String> metaDataMap = new HashMap<>();
                 Resource child = children.next();
@@ -55,11 +57,16 @@ public class MetaDataReaderImpl implements MetaDataReader {
                 String nodeName = child.getName();
                 if(!"jcr:content".equals(nodeName)){
                     ValueMap metaDataProperties = resourceResolver.getResource(rootPath+METADATA).getValueMap();
-                    metaDataMap.put("imagePath",rootPath);
-                    metaDataMap.put("assetName",nodeName);
-                    metaDataMap.put("mimeType", metaDataProperties.get(MIME_TYPE, String.class));
-                    metaDataMap.put("title", metaDataProperties.get(TITLE, String.class));
-                    metaDataList.add(metaDataMap);
+                    String imageType = metaDataProperties.get(MIME_TYPE, String.class);
+                    if(imageType.equals("image/png")){
+                        metaDataMap.put("imagePath",rootPath);
+                        metaDataMap.put("mimeType", imageType);
+                        metaDataMap.put("title", metaDataProperties.get(TITLE, String.class));
+                        metaDataMap.put("pngTitle", metaDataProperties.get(PNG_TITLE, String.class));
+                        metaDataMap.put("pngDescription", metaDataProperties.get(PNG_DESCRIPTION, String.class));
+                        metaDataList.add(metaDataMap);
+
+                    }
                 }      
             }
         }
