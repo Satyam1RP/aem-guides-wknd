@@ -1,0 +1,28 @@
+.cmp-assets {
+    background-color: $color-background-asset;
+    text-align: center;
+  &__heading {
+    font-size: 30px;
+    font-weight: bolder;
+  }
+  &__list {
+    &--detail {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        &--assetname{
+            font-size: 15px;
+            margin-top: 10px;
+        } 
+      &--image {
+        width: 50%;
+        height: 50%; 
+      }
+      &--title {
+        font-size: 20px;
+        font-weight: bold; 
+      }
+      &--mimetype {
+      }
+    }
+  }
+}
