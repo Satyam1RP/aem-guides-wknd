@@ -6,6 +6,12 @@
                 <div class="cmp-newsarticle__details--title">Title : ${model.title}</div>
                 <div class="cmp-newsarticle__details--pdate">Publish Date : ${model.publishDate}</div>
                 <div class="cmp-newsarticle__details--description">Description : ${model.description @context='html' }</div>
+                <div  class="cmp-newsarticle__details--articlelist"> Article Lists : 
+                    <sly data-sly-list.item="${model.articleList}">
+                        <div  class="cmp-newsarticle__details--articlelist-item">Article ${itemList.count} : ${item}</div>
+                    </sly>
+                </div>
+                <img src="${model.articleImage}" class="cmp-newsarticle__details--image" alt="image not found">
             </div>
        </sly>
 </div>
