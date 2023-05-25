@@ -39,7 +39,7 @@ public class FacetSearchServiceImpl implements FacetSearchService  {
             predicate.put("type", "cq:Page");
             for (int i = 0; i < searchTags.length; i++) {  
                 if (!"".equals(searchTags[i])) {
-                  predicate.put("group."+Integer.toString(g)+"_property", "jcr:content/@cq:tags");  
+                  predicate.put("group."+Integer.toString(g)+"_property", "jcr:content/@cq:customtags");  
                   predicate.put("group."+Integer.toString(g)+"_property.value", searchTags[i]);   
                   g++;
                 }
