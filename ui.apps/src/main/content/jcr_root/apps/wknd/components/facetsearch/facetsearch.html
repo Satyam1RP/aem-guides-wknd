@@ -1,0 +1,38 @@
+<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.FacetSearch"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"      
+     class="cmp-search">
+    <sly data-sly-test="${!model.isEmpty}"> 
+        <div class="cmp-search__facets" cmp-facetsearch-path="${model.rootPath}" >
+            <div class="cmp-search__facets__text">${model.headerText}</div>
+            <div class="cmp-search__facets__detail">
+                <select id="industry" class="cmp-search__facets__detail--lists">
+                    <option value=""> Select Industry</option>
+                    <sly data-sly-list.item="${model.industryList}">
+                        <option  value="${item.tagPath}">${item.tagName}</option> 
+                    </sly>                      
+                </select>
+                <select  id="sector" class="cmp-search__facets__detail--lists">
+                    <option value="">Select Sector</option>
+                    <sly data-sly-list.item="${model.sectorList}">
+                        <option value="${item.tagPath}">${item.tagName}</option> 
+                    </sly> 
+                </select>
+                <select  id="country" class="cmp-search__facets__detail--lists">
+                    <option value="">Select Country</option>
+                    <sly data-sly-list.item="${model.countryList}">
+                        <option value="${item.tagPath}">${item.tagName}</option> 
+                    </sly> 
+                </select>
+                <button id="searchbutton" class="cmp-search__facets__detail--searchbutton"> Show Pages</button>
+            </div>
+            <hr>
+            <div class="cmp-search__facets__results">
+                <div id="search_Result" class="cmp-search__facets__results--count">
+                </div>
+                <div class="cmp-search__facets__results--container">
+                </div>
+            </div>
+        </div>
+    </sly>
+</div>
+<sly data-sly-call="${templates.placeholder @ isEmpty=model.isEmpty}"></sly>
