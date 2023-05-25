@@ -1,0 +1,30 @@
+.cmp-newsarticle{
+    background-color: $color-background-asset;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    &__details{
+        font-weight: bold;
+        font-size: 17px;
+        text-align: initial;
+        margin-left: 130px;
+        &--description{
+            p {
+                display: inline;
+            }
+        }
+        &--articlelist{
+            border-style: ridge;
+            margin: 10px 5px;
+            &-item{
+                margin-left: 110px;
+            }
+        }
+        &--image{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 33%;
+        }
+    }
+}
