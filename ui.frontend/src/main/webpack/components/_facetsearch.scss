@@ -1,0 +1,41 @@
+.cmp-search{
+    background: beige;
+
+    &__facets{
+
+       &__text{
+        text-align: center;
+        font-size: 45px;
+        font-weight: bold;
+
+       }
+       &__detail{
+            margin: 15px 25px;
+            &--lists{
+                margin: 30px 30px;
+                width: 16%;
+                cursor: pointer; 
+            }  
+            &--searchbutton{
+                border-radius: 11px;
+                background-color: grey;
+                border: 2px solid darkgrey;
+                color: black;
+                height: 33px;
+                width: 16%;
+                cursor: pointer;
+            }
+       }
+      
+       &__results{
+             &--count{
+                font-weight: 900;
+                margin-left: 58px;
+             }
+                &--container{
+                    margin-left: 60px;
+                }
+       }
+       
+    }
+}

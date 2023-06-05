@@ -1,0 +1,32 @@
+<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.UniversityCard"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html" 
+     class="cmp-universitycard" data-cmp-is="cmp-universitycard"
+     style="background-image: linear-gradient(${model.linearGradient @ context='styleString'}), url('${model.imagePath @ context='styleString'}');" >
+     <sly data-sly-test="${!model.isEmpty}">    
+       <div class="cmp-universitycard__content">
+            <div class="cmp-universitycard__content__left">
+                <div class="cmp-universitycard__content__left--title">${model.title}</div>
+                    <div class="cmp-universitycard__content__left--cards" data-sly-list.item="${model.counts}">
+                        <div class="cmp-universitycard__content__left--cards--card"  cmp-universitycard-count="${itemList.count}">
+                            <div  class="cmp-universitycard__content__left--cards--card-value" data-isPercent="${item.usePercentage}" cmp-universitycard-maxnumber="${item.maxNumber}" cmp-universitycard-minnumber="${item.minNumber}">${item.minNumber}
+                                <sly data-sly-test="${item.usePercentage == 'true'}"><span>%</span> </sly>
+                            </div>
+                            <div  class="cmp-universitycard__content__left--cards--card-text">${item.text}</div>
+                        </div>   
+                    </div>
+            </div>
+            <div class="cmp-universitycard__content__right">
+                <sly data-sly-test="${model.videoPath}">
+                    <div class="cmp-universitycard__content__right__container" >
+                        <video id="cmp-universitycard__samplevideo" class="cmp-universitycard__content__right__container--video">
+                            <source src="${model.videoPath}" type="${model.videoType}">
+                        </video>
+                        <img class="cmp-universitycard__content__right__container--videoplay" src="/etc.clientlibs/wknd/clientlibs/clientlib-site/resources/images/playButton.png" alt="">
+                        <img class="cmp-universitycard__content__right__container--videopause" src="/etc.clientlibs/wknd/clientlibs/clientlib-site/resources/images/pause-button-png.png" alt="">     
+                    </div>
+                </sly>
+            </div>
+        </div>    
+     </sly>   
+</div>
+<sly data-sly-call="${templates.placeholder @ isEmpty=model.isEmpty}"></sly>
