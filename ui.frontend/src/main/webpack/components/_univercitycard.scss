@@ -1,0 +1,176 @@
+.cmp-universitycard {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    @include min-screen(lg) {
+      flex-direction: row;
+      max-width: 1200px;
+      padding-top: 5px;
+    }
+    &__left {
+      width: 100%;
+      @include min-screen(lg) {
+        width: 35%;
+        margin-left: 73px;
+      }
+      &--title {
+        color: $color-text-white;
+        font-size: 28px;
+        font-weight: bold;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-top: 10px;
+        @include min-screen(md) {
+          font-size: 50px;
+        }
+        @include min-screen(lg) {
+          font-size: 21px;
+          font-weight: 900;
+          padding-bottom: 37px;
+          max-width: 350px;
+          width: 100%;
+        }
+      }
+      &--cards {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+       
+        @include min-screen(lg) {
+          flex-direction: row;
+          font-size: 28px;
+          font-weight: bold;
+          padding-bottom: 30px;
+        }
+        &--card {
+          background-color: hsl(0deg 0.36% 79.45% / 20%);
+          border: 0px;
+          border-radius: 10px;
+          height: 50px;
+          margin: 13px;
+          margin-top: 13px;
+          padding: 25px;
+          padding-bottom: 45px;
+          text-align: center;
+          width: 78%;
+          @include min-screen(md) {
+            width: 91%;
+          }
+          @include min-screen(lg) {
+            height: 12px;
+            margin-top: -8px;
+            margin-bottom: 0px;
+            padding-top: 20px;
+            width: 25%;
+          }
+          &-value {
+            color: $color-number-value;
+            font-size: 30px;
+            font-weight: bold;
+            @include min-screen(lg) {
+              font-size: 16px;
+              margin-bottom: 1px;
+            }
+          }
+          &-text {
+            color: #e7e7e7ed;
+            font-size: 20px;
+            font-weight: bold;
+            @include min-screen(lg) {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+    &__right {
+     
+      @include min-screen(md) {
+        width: 100%;
+      }
+      @include min-screen(lg) {
+        margin-left: -41px;
+        width: 30%;
+      }
+      &__container {
+        width: 343px;
+       
+        @include min-screen(lg) {
+          max-width: 281px;
+        }
+       
+        &--video{
+          border-radius: 12px;
+          margin: 16px;
+          margin-top: 23px;
+          width: 313px;
+         
+          @include min-screen(md) {
+            width: 753px;
+          }
+          @include min-screen(lg) {
+            height: 190px;
+            margin: 0px;
+            margin-top: 0px;
+            object-fit: cover;
+            width: 100%;
+          }
+         
+        }
+        &--videoplay{
+          cursor: pointer;
+          height: 32px;
+          position: absolute;
+          right: 151px; 
+          top: 795px;
+          width: 32px;
+          @include min-screen(md) {
+            right: 348px;
+            height: 80px;
+            top: 956px;
+            width: 79px;
+          }
+          @include min-screen(lg) {
+            height: 32px;
+            right: 542px;
+            top: 146px;   
+            width: 32px;
+          }
+        }
+        &--videopause{
+          cursor: pointer;
+          display: none;
+          height: 32px;
+          position: absolute;
+          right: 151px;
+          top: 762px;
+          width: 32px;
+          @include min-screen(md) {
+            right: 382px;
+            top: 950px;    
+          }
+          @include min-screen(lg) {
+            right: 550px;
+            top: 146px;  
+          }
+        }
+       }
+    }
+    &__shifted {
+      @include min-screen(lg) {
+        margin-top: 6px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+      }
+    }
+  }
+}
