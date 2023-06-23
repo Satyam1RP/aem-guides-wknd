@@ -1,0 +1,49 @@
+<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.Product"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html" 
+      data-cmp-is="product-component">
+     <sly data-sly-test="${!model.isEmpty}">  
+        <div class="cmp-product-active">
+            <ul class="cmp-product-active__images"  data-sly-list.item="${model.images}">
+                <sly  data-sly-test="${item.image || item.altText}">
+                    <li class="cmp-product-active__images-list ${itemList.first  ? 'first-image' : ''}">
+                        <div class="cmp-product-active__images-list-hover"></div>
+                        <img src="${item.image}" alt="${item.altText}" class="cmp-product-active__images-list-img">
+                    </li>
+                </sly>
+            </ul>
+           <div class="cmp-product-active__detail">
+                <div class="cmp-product-active__detail--productname">${model.productName}</div> 
+                <hr class="cmp-product-active__detail--line" >
+                <div class="cmp-product-active__detail--productcategory" data-sly-list.item="${model.categories}">
+                    <div class="cmp-product-active__detail--productcategory-item ${itemList.first  ? 'first-category' : ''}">${item.category}</div>
+               </div> 
+           </div>
+        </div>
+        <div class="cmp-product">
+            <div class="cmp-product__left">
+                <ul class="cmp-product__left-images"  data-sly-list.item="${model.images}">
+                    <sly  data-sly-test="${item.image || item.altText}">
+                        <li class="cmp-product__left-img-list">
+                            <img src="${item.image}" alt="${item.altText}" class="cmp-product__left-img">
+                        </li>  
+                    </sly> 
+                </ul>
+            </div>
+            <div class="cmp-product__right">
+                <div class="cmp-product__right-buttons">
+                    <span class="cmp-product__right-buttons--prev">&#10094;</span> 
+                    <span class="cmp-product__right-buttons--next">&#10095;</span>
+                </div>
+                <hr class="cmp-product__right-line">
+                <div class="cmp-product__right-details">
+                    <div class="cmp-product__right-details--productname">${model.productName}</div>                
+                    <div class="cmp-product__right-details--productcategory" data-sly-list.item="${model.categories}">
+                        <div class="cmp-product__right-details--productcategory-item">${item.category}</div>
+                    </div>         
+                    <div class="cmp-product__right-details--productdescription">${model.productDescription  @context='html'}</div>        
+                </div>
+            </div>  
+         </div>    
+     </sly>   
+</div>
+<sly data-sly-call="${templates.placeholder @ isEmpty=model.isEmpty}"></sly>

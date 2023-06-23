@@ -1,0 +1,254 @@
+.cmp-product-active{
+    height: 200px;
+    width: 100%;
+    @include min-screen(md) {
+       height: 410px;
+    } 
+    @include min-screen(lg) {
+        width: 22%;
+        height: 200px;
+    }
+    &__images{
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        &-list{
+            display: none;
+            height: 100%;
+            &:first-child {
+                display: block;
+            }
+            &-img{
+                height: 100%;
+                width: 100%;   
+            }
+            &.first-image{
+                &:hover{
+                    .first-image-text{
+                        display: block;
+                    }
+                }
+            }
+        }     
+    }
+    &__detail{
+        color: $color-text-white;
+        opacity: 0.8;
+        &--productname{
+            font-size: 20px;
+            font-weight: bold;
+            left: 85px;
+            position: relative;
+            top: -120px;
+            text-transform: uppercase;
+            @include min-screen(md) {
+                font-size: 40px;
+                left: 217px;
+                top: -290px;
+             } 
+            @include min-screen(lg) {
+                display: none;
+                font-size: 25px;
+                left: 78px;
+                top: -140px;      
+            }
+        }
+        &--line{
+            background-color: $color-text-white;
+            border: none;
+            height: 3px;
+            position: relative;
+            top: -124px;
+            left: -20px;
+            width: 8%;
+            @include min-screen(md) {
+                top: -280px;
+                left: -30px;
+                width: 8%;
+                height: 7px;
+             } 
+            @include min-screen(lg) {
+                display: none;
+                left: -7px;
+                top: -140px;
+                height: 2px;
+            }
+        }
+        &--productcategory{
+            font-size: 15px;
+            font-weight: 700;
+            left: 80px;
+            position: relative;
+            text-transform: uppercase;
+            top: -122px;
+            @include min-screen(md) {
+                font-size: 38px;
+                left: 190px;
+                top: -250px;
+            }
+            @include min-screen(lg) {
+                display: none;
+                font-size: 17px;
+                left: 83px;
+                top: -130px;
+            }
+            &-item{
+                display: none;
+                &:first-child{
+                    display: block;
+                }
+            }
+    
+        }
+    }
+    &:hover{
+        cursor: pointer;
+        .first-image{
+            position: relative;
+            .cmp-product-active__images-list-hover{
+                background-color: $color-black;
+                bottom: 0;
+                left: 0;
+                opacity: 0.5;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+        .cmp-product-active__detail--productname{
+            display: block;
+        }
+        .cmp-product-active__detail--line{
+            display: block;
+        }
+        .cmp-product-active__detail--productcategory{
+            display: block;
+        }
+    }
+}
+
+.cmp-product{
+    animation: 1s slide-up;
+    background-color: lightgrey;
+    display: none;
+    flex-direction: column;
+    position: relative;
+    @include min-screen(lg) {
+        flex-direction: row;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    &__left{
+        padding-bottom: 20px;
+        @include min-screen(lg) {
+            padding-bottom: 0px;
+            width: 75%;
+        }
+        &-images{
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        &-img{
+            &-list{
+                height: 250px;
+                margin-bottom: 10px;
+                @include min-screen(md) {
+                    height: 400px;
+                } 
+                @include min-screen(lg) {
+                    height: 700px;
+                }   
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &__right{
+        animation: 1s slide-up;
+        background-color: $color-text-white;
+        @include min-screen(lg) {    
+            height: 710px;
+            position: fixed;
+            right: 0px;
+            top: 0px;
+            width: 23%;
+         }
+        &-buttons{
+            display: flex;
+            justify-content: space-between;
+            margin: 0px;
+            opacity: 0.4;
+            padding: 25px; 
+            @include min-screen(md) {
+                font-size: 42px;
+                padding: 25px 50px;
+            } 
+            @include min-screen(lg) {
+                font-size: 20px;
+                padding: 25px; 
+             }  
+        }
+        &-line{
+            margin: 0px;
+            opacity: 0.4;
+        }
+        &-details{
+            padding: 25px;
+            @include min-screen(md) {
+                padding: 25px 50px;
+            } 
+            @include min-screen(lg) {
+                padding: 20px 25px;
+            }
+            &--productname{
+                text-transform: uppercase;
+                font-weight: bold;
+                @include min-screen(md) {   
+                     font-size: 45px;
+                } 
+                @include min-screen(lg) {
+                    font-size: 20px;
+                    font-weight: 800;
+                 }
+            }
+            &--productcategory{
+                .first-category{
+                    text-transform: uppercase;
+                }
+                &-item{
+                    margin: 10px 0px;
+                }
+                @include min-screen(md) {
+                     font-size: 25px;
+                } 
+                @include min-screen(lg) {
+                    font-size: 20px;
+                    
+                 }
+            }
+            &--productdescription{
+                @include min-screen(md) {
+                    font-size: 20px;
+               } 
+               @include min-screen(lg) {
+                font-size: 15px;
+                
+               }
+            }
+        }
+    }
+}    
+@keyframes slide-up {
+    from {
+      margin-top: 100%;
+      height: 300%;
+    }
+    to {
+      margin-top: 0%;
+      height: 100%;
+    }
+}
